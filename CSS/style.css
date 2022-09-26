@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+}
+
+.containerBody {
+    padding: 30px;
+    height: 180vh;
+    width: 100vw;
+    margin-bottom: 100px;
+}
+
+/* Style Navbar */
+.navbar {
+    background-color: #45526e;
+}
+
+.navbar-brand {
+    font-weight: bolder;
+}
+
+.nav-link.active {
+    color: white;
+    font-weight: bold;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1 em;
+}
+.navbar .navbar-nav .nav-link:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.navbar .navbar-nav .nav-link {
+    padding: 0.6em;
+}
+
+.navbar .navbar-brand {
+    padding: 0 0.6em;
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar {
+        padding: 0;
+    }
+    .navbar .navbar-nav .nav-link {
+        padding: 1em 0.7em;
+    }
+    .navbar .navbar-brand {
+        padding: 0 0.8em;
+    }
+}
+
+/* Style Portfolio */
+.img-fluid {
+    border-radius: 3%;
+}
+
+.img-fluid:hover {
+    opacity: 0.3;
+}
+
+.text-justify-portofolio {
+    text-align: justify;
+}
