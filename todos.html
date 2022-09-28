@@ -45,7 +45,150 @@
 
         <div class="containerBody">
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-3">TODOS</h2>
+            <div id="formLogin">
+                <div class="login-page">
+                    <form onsubmit="getLoginInput()">
+                        <div class="form">
+                            <input type="text" placeholder="Username" id="username"/>
+                            <input type="password" placeholder="Password" id="password"/>
+                            <button type="submit">login</button>
+                        </div>
+                    </form>
+                  </div>
+            </div>
 
+            <div id="loginContent">
+                <div class="portfolio-modal modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="close-modal" data-bs-dismiss="modal">
+                                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+    
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="modal-body">
+                                        <h3 class="text-uppercase">EDIT</h3>
+                                        <!-- <form> -->
+                                            <div class="form-group">
+                                              <label for="Name">Name</label>
+                                              <input type="text" class="form-control" id="editName" placeholder="Edit Name">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="Email">Email</label>
+                                              <input type="text" class="form-control" id="editEmail" placeholder="Edit Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Address">Address</label>
+                                                <input type="text" class="form-control" id="editAddress" placeholder="Edit Address">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Quantity">Quantity</label>
+                                                <input type="number" class="form-control" id="editQuantity" placeholder="Edit Quantity" min="1">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Status">Status</label>
+                                                <select class="form-select" id="status">
+                                                <option value="Queue">Queue</option>
+                                                  <option value="On Process">On Process</option>
+                                                  <option value="Finish">Finish</option>
+                                                </select>
+                                            </div>
+                                            <button class="button-81 mt-3" role="button" onclick="editData(), reloadPage()">Update</button>
+                                        <!-- </form> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-danger btn-lg" onclick="logout()">LOGOUT</button>
+                </div>
+                <hr>
+
+                <h4 class="page-section-heading text-center text-uppercase text-dark mt-3"><u>ORDER STATUS</u></h4>
+                <table class="table table-hover table-bordered table-dark"><br>
+                    <thead>
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Quantitiy</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody id="order">
+
+                    </tbody>
+                </table><br>
+                
+                <div class="card" style="width: auto;">
+                    <div class="card-body">
+                        <h5 class="page-section-heading text-start text-uppercase text-dark mt-3"><u>ORDER STATUS</u></h5>
+                        <!--Grid column-->
+                        <div class="col-md-10 mb-md-0 mb-5">
+                            <form id="input-form" onsubmit="validateForm()">
+                                <!--Grid row-->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="sm-form mb-3">
+                                            <input type="text" id="name" class="form-control">
+                                            <label for="name" class="">Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Grid row-->
+
+                                <!--Grid row-->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="sm-form mb-3">
+                                            <input type="email" id="email" class="form-control">
+                                            <label for="email" class="">Email</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Grid row-->
+
+                                <!--Grid row-->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="sm-form mb-3">
+                                            <textarea type="text" id="address" class="form-control md-textarea"></textarea>
+                                            <label for="address">Address</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="sm-form mb-3">
+                                            <input type="number" id="quantity" class="form-control" min="1">
+                                            <label for="quantity" class="">Quantitiy / KG</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-md-left">
+                                    <button class="btn btn-secondary btn-lg w-50" type="submit" >Add</button>
+                                </div>
+                            </form>
+
+                            
+                            <div class="status"></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            
         </div>
 
         <footer
@@ -128,7 +271,6 @@
 
                 <hr class="my-3">
 
-                <!-- Section: Copyright -->
                 <section class="p-3 pt-0">
                     <div class="row d-flex align-items-center">
                         <!-- Grid column -->
@@ -174,11 +316,11 @@
                         <!-- Grid column -->
                     </div>
                 </section>
-                <!-- Section: Copyright -->
             </div>
             <!-- Grid container -->
         </footer>
 
+        <script src="./Javascript/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     </body>
 </html>
