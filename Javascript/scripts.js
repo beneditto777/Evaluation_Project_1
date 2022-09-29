@@ -123,7 +123,7 @@ function getData() {
       if (temp[index].status == 'Queue') {
         color = 'red';
       } else if (temp[index].status == 'On Process') {
-        color = 'blue'
+        color = 'yellow'
       } else {
         color = 'green';
       }
